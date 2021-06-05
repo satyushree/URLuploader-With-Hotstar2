@@ -13,7 +13,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 
-def start() -> scoped_session:
+def start1() -> scoped_session:
     engine = create_engine(Config.DB_URI, client_encoding="utf8")
     BASE.metadata.bind = engine
     BASE.metadata.create_all(engine)
@@ -21,7 +21,7 @@ def start() -> scoped_session:
 
 
 BASE = declarative_base()
-SESSION = start()
+SESSION = start1()
 
 INSERTION_LOCK = threading.RLock()
 
